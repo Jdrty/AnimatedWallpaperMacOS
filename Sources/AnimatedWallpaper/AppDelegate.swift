@@ -1,9 +1,14 @@
 import Cocoa
-class A: NSObject, NSApplicationDelegate {
-    var d: D?
+
+final class AppDelegate: NSObject, NSApplicationDelegate {
+    private var controller: DesktopWindowController?
+
     func applicationDidFinishLaunching(_ n: Notification) {
-        d = D()
-        d?.r()
+        controller = DesktopWindowController()
+        controller?.reload()
     }
-    func applicationShouldTerminateAfterLastWindowClosed(_ s: NSApplication) -> Bool { false }
+
+    func applicationShouldTerminateAfterLastWindowClosed(_ s: NSApplication) -> Bool {
+        false
+    }
 }
